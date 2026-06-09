@@ -24,6 +24,7 @@
       { label: "About",    href: "about.html",    icon: "apartment" },
       { label: "Services", href: "services.html", icon: "grid_view" },
       { label: "Our Team", href: "team.html",     icon: "groups" },
+      { label: "Clients",  href: "clients.html",  icon: "handshake" },
       { label: "Insights", href: "insights.html", icon: "menu_book" },
       { label: "Contact",  href: "contact.html",  icon: "call" }
     ]
@@ -79,7 +80,7 @@
   function buildFooter() {
     var solutions = ['Agri Innovation Support', 'Strategy &amp; Management Advisory', 'Investment Banking', 'PPP Advisory']
       .map(function (s) { return '<a href="services.html">' + s + "</a>"; }).join("");
-    var company = [['About Us', 'about.html'], ['Our Team', 'team.html'], ['Insights', 'insights.html'], ['Contact', 'contact.html']]
+    var company = [['About Us', 'about.html'], ['Our Team', 'team.html'], ['Our Clients', 'clients.html'], ['Impact', 'impact.html'], ['Life & Career', 'career.html'], ['Insights', 'insights.html'], ['Contact', 'contact.html']]
       .map(function (c) { return '<a href="' + c[1] + '">' + c[0] + "</a>"; }).join("");
 
     var html =

@@ -75,8 +75,8 @@ body {
 .brand b { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.15rem; letter-spacing: -.01em; color: var(--navy); }
 .brand span { font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--slate); margin-top: 2px; }
 .on-dark .brand b { color: #fff; } .on-dark .brand span { color: rgba(255,255,255,.7); }
-.nav-links { display: none; align-items: center; gap: 2rem; }
-@media (min-width: 900px){ .nav-links { display: flex; } }
+.nav-links { display: none; align-items: center; gap: 1.4rem; }
+@media (min-width: 1024px){ .nav-links { display: flex; } }
 .nav-link {
   font-size: 14px; font-weight: 600; letter-spacing: .03em; text-decoration: none;
   color: var(--slate); padding-bottom: 4px; border-bottom: 2px solid transparent;
@@ -87,10 +87,10 @@ body {
 .on-dark:not(.scrolled) .nav-link { color: rgba(255,255,255,.78); }
 .on-dark:not(.scrolled) .nav-link:hover, .on-dark:not(.scrolled) .nav-link.active { color: #fff; }
 .menu-btn { display: inline-flex; background: none; border: 0; cursor: pointer; color: var(--navy); }
-@media (min-width: 900px){ .menu-btn { display: none; } }
+@media (min-width: 1024px){ .menu-btn { display: none; } }
 .on-dark:not(.scrolled) .menu-btn { color: #fff; }
-/* the header CTA is desktop-only — on mobile the drawer + bottom tabs cover it */
-@media (max-width: 899px){ #hdrCta { display: none !important; } }
+/* the header CTA only appears on wide screens (and on scroll) — never crowd the links */
+@media (max-width: 1199px){ #hdrCta { display: none !important; } }
 @media (max-width: 560px){
   .brand b { font-size: 1rem; letter-spacing: -.02em; }
   .brand span { font-size: 9px; letter-spacing: .12em; }
@@ -183,3 +183,35 @@ input, select, textarea { font-family: inherit; }
 .field { width: 100%; padding: .8rem 1rem; border: 1px solid var(--line); border-radius: 4px; background: #fff; font-size: 15px; }
 .field:focus { outline: none; border-color: var(--navy); box-shadow: 0 0 0 3px rgba(0,31,63,.08); }
 .form-note { font-size: 13px; }
+
+/* ----- people / profile cards ----- */
+.monogram { width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--navy); color: var(--gold); font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.15rem;
+  border: 2px solid var(--gold); letter-spacing: .02em; }
+.profile-card { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 1.75rem; height: 100%;
+  display: flex; flex-direction: column; transition: all .3s ease; }
+.profile-card:hover { box-shadow: 0 16px 40px -18px rgba(0,31,63,.2); transform: translateY(-3px); border-color: rgba(212,175,55,.45); }
+.profile-card .role { color: var(--gold); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.tag { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: .04em; color: var(--ink-soft);
+  background: var(--surface-low); border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px; }
+.tel-link { color: var(--ink-soft); font-size: 13px; text-decoration: none; }
+.tel-link:hover { color: var(--navy); }
+
+/* segment / value tiles */
+.tile { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 1.5rem; text-align: center; transition: all .3s ease; }
+.tile:hover { box-shadow: 0 14px 36px -16px rgba(0,31,63,.18); transform: translateY(-3px); }
+
+/* big impact stat */
+.impact-stat { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 2rem; border-top: 4px solid var(--gold); }
+.impact-stat .big { font-family: 'Playfair Display', serif; font-weight: 700; color: var(--navy); font-size: 3rem; line-height: 1; }
+
+/* job opening row */
+.job { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.1rem 1.25rem;
+  background: #fff; border: 1px solid var(--line); border-radius: 8px; transition: all .25s ease; text-decoration: none; }
+.job:hover { border-color: var(--gold); box-shadow: 0 10px 28px -16px rgba(0,31,63,.18); }
+
+/* insight/blog card */
+.post-card { display: flex; flex-direction: column; justify-content: space-between; height: 100%;
+  background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 1.6rem; text-decoration: none; transition: all .3s ease; }
+.post-card:hover { box-shadow: 0 16px 40px -18px rgba(0,31,63,.2); transform: translateY(-3px); }
