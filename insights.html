@@ -11,14 +11,12 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="assets/scg.css">
 <style>
-  .post-thumb{height:11rem;border-radius:6px 6px 0 0;background:linear-gradient(135deg,var(--navy),var(--navy-deep));position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:1rem}
+  .post-thumb{height:11rem;background:linear-gradient(135deg,var(--navy),var(--navy-deep));position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:1rem}
   .post-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-  .post-thumb .material-symbols-outlined{position:absolute;right:.75rem;top:.75rem;color:rgba(229,199,107,.5);font-size:2.2rem}
+  .post-thumb .ic{position:absolute;right:.75rem;top:.75rem;color:rgba(229,199,107,.55);font-size:2.2rem}
   .blog-card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;height:100%;transition:all .3s ease;text-decoration:none}
   .blog-card:hover{box-shadow:0 16px 40px -18px rgba(0,31,63,.2);transform:translateY(-3px)}
   .blog-card .body{padding:1.4rem;display:flex;flex-direction:column;flex-grow:1}
-  .skel{background:linear-gradient(90deg,#eee,#f6f6f6,#eee);background-size:200% 100%;animation:sk 1.2s infinite}
-  @keyframes sk{0%{background-position:200% 0}100%{background-position:-200% 0}}
 </style>
 </head>
 <body data-page="insights" data-header="light">
@@ -37,27 +35,40 @@
     </div>
   </header>
 
-  <section class="section bg-surface" style="background:var(--surface-low);padding-top:2.5rem">
+  <!-- LIVE BLOG FEED -->
+  <section class="section bg-surface" style="background:var(--surface-low);padding-top:2.5rem;padding-bottom:3rem">
     <div class="wrap">
-      <div id="blog-status" class="text-slate" style="font-size:.9rem;margin-bottom:1.25rem;display:flex;align-items:center;gap:.5rem"><span class="material-symbols-outlined" style="font-size:18px">rss_feed</span> Loading the latest posts from our blog…</div>
-      <div id="blog-grid" style="display:grid;grid-template-columns:1fr;gap:1.25rem" class="md:grid-cols-2 lg:grid-cols-3">
-        <!-- baked fallback (real posts) — replaced by live data when available -->
-        <a class="blog-card" href="https://rsjha.wordpress.com/2026/06/09/7-proven-entrepreneurship-strategies-to-accelerate-business-growth-in-indias-competitive-market-64/" target="_blank" rel="noopener">
-          <div class="post-thumb"><span class="material-symbols-outlined">menu_book</span><span class="tag" style="position:relative;z-index:2">Business Growth</span></div>
-          <div class="body"><h3 class="font-display text-navy" style="font-size:1.2rem;font-weight:700;margin-bottom:.5rem">7 Proven Entrepreneurship Strategies to Accelerate Business Growth in India’s Competitive Market</h3><p class="text-soft" style="font-size:.9rem;flex-grow:1">India’s booming entrepreneurial ecosystem offers massive opportunity, but scaling requires more than a great idea. Seven proven strategies.</p><span class="text-gold" style="font-size:.85rem;font-weight:600;margin-top:1rem;display:inline-flex;align-items:center;gap:.25rem">Read on our blog <span class="material-symbols-outlined" style="font-size:15px">arrow_outward</span></span></div>
-        </a>
-        <a class="blog-card" href="https://rsjha.wordpress.com/2026/06/08/7-powerful-business-growth-strategies-every-indian-entrepreneur-must-master-in-2024-13/" target="_blank" rel="noopener">
-          <div class="post-thumb"><span class="material-symbols-outlined">trending_up</span><span class="tag" style="position:relative;z-index:2">Business Development</span></div>
-          <div class="body"><h3 class="font-display text-navy" style="font-size:1.2rem;font-weight:700;margin-bottom:.5rem">7 Powerful Business Growth Strategies Every Indian Entrepreneur Must Master</h3><p class="text-soft" style="font-size:.9rem;flex-grow:1">Growth strategies designed for Indian entrepreneurs navigating today’s competitive market — from digital to unit economics.</p><span class="text-gold" style="font-size:.85rem;font-weight:600;margin-top:1rem;display:inline-flex;align-items:center;gap:.25rem">Read on our blog <span class="material-symbols-outlined" style="font-size:15px">arrow_outward</span></span></div>
-        </a>
-        <a class="blog-card" href="https://rsjha.wordpress.com/2026/06/07/7-proven-entrepreneurship-strategies-every-indian-business-owner-must-master-in-2024-11/" target="_blank" rel="noopener">
-          <div class="post-thumb"><span class="material-symbols-outlined">lightbulb</span><span class="tag" style="position:relative;z-index:2">Entrepreneurship</span></div>
-          <div class="body"><h3 class="font-display text-navy" style="font-size:1.2rem;font-weight:700;margin-bottom:.5rem">7 Proven Entrepreneurship Strategies Every Indian Business Owner Must Master</h3><p class="text-soft" style="font-size:.9rem;flex-grow:1">Strategies tailored for the Indian market — from resilient business models to Tier-2 market opportunities and jugaad innovation.</p><span class="text-gold" style="font-size:.85rem;font-weight:600;margin-top:1rem;display:inline-flex;align-items:center;gap:.25rem">Read on our blog <span class="material-symbols-outlined" style="font-size:15px">arrow_outward</span></span></div>
-        </a>
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:1.75rem">
+        <h2 class="font-display text-navy" style="font-size:clamp(1.6rem,3.5vw,2rem);font-weight:700">From the Blog</h2>
+        <div id="blog-status" class="text-slate" style="font-size:.85rem;display:flex;align-items:center;gap:.4rem"><span class="material-symbols-outlined" style="font-size:16px">rss_feed</span> Loading latest posts…</div>
       </div>
 
-      <div style="text-align:center;margin-top:2.5rem">
-        <a class="btn btn-outline" href="https://rsjha.wordpress.com/" target="_blank" rel="noopener">See all posts on our blog <span class="material-symbols-outlined" style="font-size:16px">arrow_outward</span></a>
+      <div id="blog-grid" style="display:grid;grid-template-columns:1fr;gap:1.25rem" class="md:grid-cols-2 lg:grid-cols-3">
+        <!-- Clean default / fallback state (shown until live posts load) -->
+        <div class="bento-card" style="grid-column:1/-1;padding:2.5rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.5rem;background:var(--navy);color:#fff;border:0">
+          <div style="max-width:34rem">
+            <span class="material-symbols-outlined text-gold" style="font-size:2rem">auto_stories</span>
+            <h3 class="font-display text-goldleaf" style="font-size:1.4rem;font-weight:700;margin:.5rem 0 .5rem">Fresh insights, published regularly</h3>
+            <p style="color:rgba(255,255,255,.72);font-size:.95rem">Our latest articles appear here automatically as we publish them. Visit the blog or subscribe to get them first.</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:.6rem">
+            <a class="btn btn-gold" href="https://rsjha.wordpress.com/" target="_blank" rel="noopener">Read the blog</a>
+            <a class="btn btn-ghost" href="https://rsjha.wordpress.com/" target="_blank" rel="noopener">Subscribe</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVERGREEN TOPICS (always present) -->
+  <section class="section bg-pearl">
+    <div class="wrap">
+      <div style="max-width:42rem;margin-bottom:2.5rem"><span class="eyebrow">What We Write About</span><h2 class="font-display text-navy" style="font-size:clamp(1.8rem,4vw,2.3rem);font-weight:700;margin-top:.75rem">Where Our Thinking Goes Deep</h2><p class="text-soft" style="margin-top:1rem">The themes we advise on most — and write about for our clients.</p></div>
+      <div style="display:grid;grid-template-columns:1fr;gap:1rem" class="md:grid-cols-2 lg:grid-cols-4">
+        <a class="bento-card" href="services.html" style="padding:1.75rem;text-decoration:none;display:block"><span class="material-symbols-outlined text-gold" style="font-size:2rem">agriculture</span><h3 class="font-display text-navy" style="font-size:1.15rem;font-weight:700;margin:.6rem 0 .4rem">Agribusiness &amp; Value Chains</h3><p class="text-soft" style="font-size:.9rem">Financing, processing and market linkage — from farm to retail.</p></a>
+        <a class="bento-card" href="services.html" style="padding:1.75rem;text-decoration:none;display:block"><span class="material-symbols-outlined text-gold" style="font-size:2rem">account_balance</span><h3 class="font-display text-navy" style="font-size:1.15rem;font-weight:700;margin:.6rem 0 .4rem">Finance &amp; Investment</h3><p class="text-soft" style="font-size:.9rem">When to bring in a Consulting CFO, raising capital, and valuation.</p></a>
+        <a class="bento-card" href="services.html" style="padding:1.75rem;text-decoration:none;display:block"><span class="material-symbols-outlined text-gold" style="font-size:2rem">diversity_3</span><h3 class="font-display text-navy" style="font-size:1.15rem;font-weight:700;margin:.6rem 0 .4rem">PPP &amp; Public Policy</h3><p class="text-soft" style="font-size:.9rem">Structuring bankable public-private partnerships and institutional advisory.</p></a>
+        <a class="bento-card" href="contact.html" style="padding:1.75rem;text-decoration:none;display:block"><span class="material-symbols-outlined text-gold" style="font-size:2rem">rocket_launch</span><h3 class="font-display text-navy" style="font-size:1.15rem;font-weight:700;margin:.6rem 0 .4rem">Entrepreneurship &amp; Growth</h3><p class="text-soft" style="font-size:.9rem">Practical strategies to scale enterprises in India’s competitive market.</p></a>
       </div>
     </div>
   </section>
@@ -69,8 +80,8 @@
 <script>
 /* Live blog feed — pulls the latest posts from rsjha.wordpress.com via the
    WordPress.com public REST API (CORS-enabled). New posts published on the
-   blog appear here automatically. De-duplicates near-identical titles and
-   falls back to the baked cards above if the feed can't be reached. */
+   blog appear here automatically. De-duplicates near-identical titles; if the
+   feed is empty or unreachable, the clean "Fresh insights" card above stays. */
 (function () {
   var SITE = "rsjha.wordpress.com";
   var API = "https://public.api.wordpress.com/rest/v1.1/sites/" + SITE +
@@ -79,18 +90,17 @@
 
   function strip(h){ var d=document.createElement("div"); d.innerHTML=h||""; return (d.textContent||"").replace(/\s+/g," ").trim(); }
   function key(t){ return strip(t).toLowerCase().replace(/[^a-z0-9]+/g," ").trim().split(" ").slice(0,8).join(" "); }
-  function fmtDate(s){ try{ var d=new Date(s); return d.toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"}); }catch(e){ return ""; } }
-  function pickCat(cats){ if(!cats) return "Insights"; var names=Object.keys(cats); var pref=names.filter(function(n){return !/news\s*&?\s*updates|uncategor/i.test(n);}); return (pref[0]||names[0]||"Insights"); }
+  function fmtDate(s){ try{ return new Date(s).toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"}); }catch(e){ return ""; } }
+  function pickCat(cats){ if(!cats) return "Insights"; var n=Object.keys(cats); var p=n.filter(function(x){return !/news\s*&?\s*updates|uncategor/i.test(x);}); return p[0]||n[0]||"Insights"; }
+  function setStatus(html){ var st=document.getElementById("blog-status"); if(st) st.innerHTML=html; }
 
   function card(p, i){
     var title = strip(p.title);
     var ex = strip(p.excerpt); if(ex.length>150) ex = ex.slice(0,147)+"…";
-    var cat = pickCat(p.categories);
     var img = p.featured_image ? '<img src="'+p.featured_image+'" alt="" loading="lazy">' : '';
-    var icon = ICONS[i % ICONS.length];
     return '<a class="blog-card" href="'+p.URL+'" target="_blank" rel="noopener">'+
-      '<div class="post-thumb">'+img+'<span class="material-symbols-outlined">'+icon+'</span>'+
-        '<span class="tag" style="position:relative;z-index:2">'+cat+'</span></div>'+
+      '<div class="post-thumb">'+img+'<span class="material-symbols-outlined ic">'+ICONS[i%ICONS.length]+'</span>'+
+        '<span class="tag" style="position:relative;z-index:2">'+pickCat(p.categories)+'</span></div>'+
       '<div class="body">'+
         '<h3 class="font-display text-navy" style="font-size:1.2rem;font-weight:700;margin-bottom:.5rem">'+title+'</h3>'+
         (ex? '<p class="text-soft" style="font-size:.9rem;flex-grow:1">'+ex+'</p>' : '<div style="flex-grow:1"></div>')+
@@ -99,27 +109,17 @@
       '</div></a>';
   }
 
-  function dedupe(posts){
-    var seen={}, out=[];
-    posts.forEach(function(p){ var k=key(p.title); if(!seen[k]){ seen[k]=1; out.push(p); } });
-    return out;
-  }
+  function dedupe(posts){ var seen={}, out=[]; posts.forEach(function(p){ var k=key(p.title); if(k && !seen[k]){ seen[k]=1; out.push(p); } }); return out; }
 
   fetch(API, {headers:{"Accept":"application/json"}})
     .then(function(r){ return r.ok ? r.json() : Promise.reject(r.status); })
     .then(function(d){
-      var posts = (d && d.posts) || [];
-      var uniq = dedupe(posts).slice(0, 9);
-      if(!uniq.length) return;
+      var uniq = dedupe((d && d.posts) || []).slice(0, 9);
+      if(!uniq.length){ setStatus('<span class="material-symbols-outlined" style="font-size:16px">rss_feed</span> No posts yet — check back soon.'); return; }
       document.getElementById("blog-grid").innerHTML = uniq.map(card).join("");
-      var st = document.getElementById("blog-status");
-      st.innerHTML = '<span class="material-symbols-outlined" style="font-size:18px;color:var(--green)">rss_feed</span> Latest from our blog — updates automatically when new posts are published.';
+      setStatus('<span class="material-symbols-outlined" style="font-size:16px;color:var(--green)">rss_feed</span> Live — updates automatically when you publish.');
     })
-    .catch(function(){
-      // keep the baked fallback cards; just soften the status line
-      var st = document.getElementById("blog-status");
-      if(st) st.innerHTML = '<span class="material-symbols-outlined" style="font-size:18px">rss_feed</span> Recent posts from our blog.';
-    });
+    .catch(function(){ setStatus('<span class="material-symbols-outlined" style="font-size:16px">rss_feed</span> Visit the blog for our latest posts.'); });
 })();
 </script>
 </body>

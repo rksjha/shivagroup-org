@@ -21,6 +21,17 @@ nothing that can be hacked — just simple web files.
 email already filled in, so enquiries arrive on your phone/inbox. (If you later want enquiries
 saved in a dashboard, we can switch on the Supabase lead-capture — about a half-day of work.)
 
+**PUBLISHING BLOG POSTS** — The Insights page is a *live* blog. To publish:
+1. Write your post on **rsjha.wordpress.com** (your WordPress.com blog — the familiar editor).
+2. Hit Publish. That's it — it appears on `shivagroup.org.in/insights.html` automatically
+   within a minute (the page pulls your latest posts from WordPress.com).
+- The page de-duplicates near-identical titles and always shows a tidy "Read the blog" card
+  even when there are no posts, so it never looks broken.
+- Tidy-up tip: in WordPress.com → **Posts**, trash the old auto-generated "7 … Entrepreneurship
+  Strategies" duplicates so only your real articles show.
+- The 10 original posts from the old WordPress were **not** migrated (they were left behind in
+  the retired site); the blog is forward-only from here.
+
 **WHAT'S LEFT TO GO LIVE** — One DNS change in Cloudflare to point `shivagroup.org.in` at the
 new site. Your Microsoft 365 **email is not affected** — we only change the website records.
 See "Go-Live cutover" below.
