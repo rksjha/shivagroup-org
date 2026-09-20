@@ -14,6 +14,9 @@
     phoneDisplay: "+91 99786 21275",
     phoneRaw: "919978621275",
     email: "rakesh@shivagroup.org.in",
+    // Online consultation booking (shivacsg.com/book). The utm_* tags tell the booking
+    // form which site the client came from, so every lead is attributed.
+    bookingUrl: "https://shivacsg.com/book?utm_source=shivagroup.org.in&utm_medium=nav&utm_campaign=book-consultation",
     address: "SF 34, 4D Square Mall, Motera, Ahmedabad, Gujarat 380005",
     // Social URLs — replace "#" with the real profile links when available
     social: {
@@ -50,7 +53,7 @@
           "</a>" +
           '<nav class="nav-links">' + links + "</nav>" +
           '<div style="display:flex;align-items:center;gap:1rem;">' +
-            '<a class="btn btn-navy" style="display:none" id="hdrCta" href="contact.html">Book a Consultation</a>' +
+            '<a class="btn btn-navy" style="display:none" id="hdrCta" href="' + SCG.bookingUrl + '">Book a Consultation</a>' +
             '<button class="menu-btn" id="menuBtn" aria-label="Open menu"><span class="material-symbols-outlined" style="font-size:30px">menu</span></button>' +
           "</div>" +
         "</div>" +
@@ -68,7 +71,7 @@
             '<b class="font-display text-navy" style="font-size:1.1rem">SCG</b>' +
             '<button class="menu-btn" id="drawerClose" style="display:inline-flex" aria-label="Close menu"><span class="material-symbols-outlined">close</span></button>' +
           "</div>" + drawerLinks +
-          '<a class="btn btn-navy" style="margin-top:1rem" href="contact.html">Book a Consultation</a>' +
+          '<a class="btn btn-navy" style="margin-top:1rem" href="' + SCG.bookingUrl.replace("utm_medium=nav", "utm_medium=menu") + '">Book a Consultation</a>' +
           '<a class="btn btn-gold" style="margin-top:.5rem" href="https://wa.me/' + SCG.phoneRaw + '" target="_blank" rel="noopener">WhatsApp Us</a>' +
         "</div>" +
       "</div>";
@@ -128,6 +131,9 @@
       return '<a class="' + (isActive(n.href) ? "active" : "") + '" href="' + n.href + '">' +
         '<span class="material-symbols-outlined">' + n.icon + "</span>" + n.label + "</a>";
     }).join("");
+    // fifth tab: online booking — the highest-intent action on a phone
+    tabs += '<a href="' + SCG.bookingUrl.replace("utm_medium=nav", "utm_medium=tabbar") + '">' +
+      '<span class="material-symbols-outlined">calendar_month</span>Book</a>';
     var el = document.getElementById("scg-tabs");
     if (el) { el.innerHTML = '<nav class="mobile-tabs">' + tabs + "</nav>"; document.body.classList.add("has-tabs"); }
   }
@@ -138,7 +144,7 @@
     var cta = document.getElementById("hdrCta");
     function onScroll() {
       if (window.scrollY > 40) { header.classList.add("scrolled"); if (cta) cta.style.display = "inline-flex"; }
-      else { header.classList.remove("scrolled"); if (cta && headerMode === "dark") cta.style.display = "none"; }
+      else { header.classList.remove("scrolled"); if (cta) cta.style.display = headerMode === "dark" ? "none" : "inline-flex"; }
     }
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
