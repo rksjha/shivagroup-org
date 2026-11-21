@@ -109,7 +109,7 @@
           "</div>" +
           '<div class="divider" style="padding-top:1.5rem;display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center;border-color:rgba(255,255,255,.12)">' +
             '<span style="font-size:12px;letter-spacing:.04em">© 2026 Shiva Consultancy Group. Excellence · Integrity · Innovation.</span>' +
-            '<span style="font-size:12px;display:flex;gap:1.25rem"><a href="#">Privacy</a><a href="#">Terms</a></span>' +
+            '<span style="font-size:12px;display:flex;gap:1.25rem"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></span>' +
           "</div>" +
         "</div>" +
       "</footer>";
